@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start -p $CLIENT_PORT"
+    "start": "next start -p 3000"
   },
   "license": "MIT",
   "dependencies": {
