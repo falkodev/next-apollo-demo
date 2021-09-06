@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "prettier": "2.3.2"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": false,
+    "trailingComma": "all",
+    "singleQuote": true,
+    "arrowParens": "avoid"
+  }
+}

@@ -1,8 +1,8 @@
-const { generateFakeData } = require('./data')
+const { generateFakeData } = require('./data')
 
 const userList = generateFakeData()
 
-const getUserList = (args) => {
+const getUserList = args => {
   if (args.page && args.perPage) {
     return userList.slice(args.page, args.page + args.perPage)
   } else if (args.name) {
@@ -13,11 +13,10 @@ const getUserList = (args) => {
   } else {
     return userList
   }
-
 }
 
 module.exports = {
   Query: {
-    users: (root, args) => getUserList(args)
+    users: (root, args) => getUserList(args),
   },
 }

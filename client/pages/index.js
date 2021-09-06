@@ -7,10 +7,15 @@ const Page = () => (
   <ApolloProvider client={client}>
     <div>
       Welcome, <Name />
-      <br/><br/>
-      <Link href="/about"><a>About</a></Link><br/>
-      <Link href="/contacts"><a>Contacts</a></Link>
-
+      <br />
+      <br />
+      <Link href="/about">
+        <a>About</a>
+      </Link>
+      <br />
+      <Link href="/contacts">
+        <a>Contacts</a>
+      </Link>
     </div>
   </ApolloProvider>
 )

@@ -8,11 +8,10 @@ module.exports = {
         name: faker.name.findName(),
         address: `${faker.address.streetAddress()} ${faker.address.city()} ${faker.address.zipCode()} ${faker.address.country()}`,
         email: faker.internet.email(),
-        phone: faker.phone.phoneNumber()
+        phone: faker.phone.phoneNumber(),
       })
     }
 
     return contacts
-  }
+  },
 }
-
