@@ -4,6 +4,21 @@
     "start-client": "cd ./client && npm run build && npm run start",
     "start": "npm run start-server & npm run start-client"
   },
+  "dependencies": {
+    "apollo-server-core": "^3.3.0",
+    "apollo-server-express": "^3.3.0",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "faker": "^4.1.0",
+    "node-dev": "^7.0.0",
+    "@apollo/client": "^3.4.10",
+    "graphql": "^14.7.0",
+    "next": "^10.2.3",
+    "next-apollo": "^5.0.6",
+    "react": "^16.14.0",
+    "react-apollo": "^3.1.5"
+  },
   "devDependencies": {
     "prettier": "2.3.2"
   },
