@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "start-server": "cd ./server && npm run start",
+    "start-client": "cd ./client && npm run build && npm run start",
+    "start": "npm run start-server & npm run start-client"
+  },
   "devDependencies": {
     "prettier": "2.3.2"
   },
