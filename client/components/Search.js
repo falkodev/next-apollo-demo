@@ -3,7 +3,7 @@ import { gql, useLazyQuery } from '@apollo/client'
 import useDebounce from './helpers/Debounce'
 import styles from './Search.module.css'
 
-const Component = props => {
+const Search = props => {
   const [searchInput, setSearchInput] = useState('')
   const debouncedSearchTerm = useDebounce(searchInput)
 
@@ -45,4 +45,4 @@ const Component = props => {
   )
 }
 
-export default Component
+export default Search

@@ -1,5 +1,5 @@
 import { gql, useQuery } from '@apollo/client'
-const Component = () => {
+const Name = () => {
   const query = gql`
     {
       user(id: 1) {
@@ -17,4 +17,4 @@ const Component = () => {
   return <span>{data.user.name}</span>
 }
 
-export default Component
+export default Name

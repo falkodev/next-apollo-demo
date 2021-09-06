@@ -1,6 +1,6 @@
 import styles from './Card.module.css'
 
-const Component = props => {
+const Card = props => {
   const user = props.user
   return (
     <div className={styles.card}>
@@ -18,4 +18,4 @@ const Component = props => {
   )
 }
 
-export default Component
+export default Card

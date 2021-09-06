@@ -4,7 +4,7 @@ import Card from './Card'
 import Search from './Search'
 import styles from './List.module.css'
 
-const Component = () => {
+const List = () => {
   let [users, setUsers] = useState([])
 
   const query = gql`
@@ -35,7 +35,7 @@ const Component = () => {
         {users.length > 0 ? (
           users.map(user => {
             return (
-              <div key={user.email}>
+              <div key={user.email + Date.now()}>
                 <Card user={user} />
               </div>
             )
@@ -48,4 +48,4 @@ const Component = () => {
   )
 }
 
-export default Component
+export default List
