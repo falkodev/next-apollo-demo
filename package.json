@@ -4,6 +4,9 @@
     "start-client": "cd ./client && npm run build && npm run start",
     "start": "npm run start-server & npm run start-client"
   },
+  "engines": {
+    "node": "14.x"
+  },
   "dependencies": {
     "apollo-server-core": "^3.3.0",
     "apollo-server-express": "^3.3.0",
