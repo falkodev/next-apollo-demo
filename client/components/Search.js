@@ -25,11 +25,9 @@ const Component = props => {
   })
 
   useEffect(() => {
-    if (debouncedSearchTerm && debouncedSearchTerm.length > 0) {
-      runQuery()
-      if (data && data.users) {
-        props.onSearch(data.users)
-      }
+    runQuery()
+    if (data && data.users) {
+      props.onSearch(data.users)
     }
   }, [debouncedSearchTerm])
 
