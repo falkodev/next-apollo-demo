@@ -3,10 +3,10 @@
     "dev": "cd ./server && npm run dev & cd ./client && npm run dev",
     "start-server": "cd ./server && npm install && npm run start",
     "start-client": "cd ./client && npm install && npm run build && npm run start",
-    "start": "npm run start-server & npm run start-client"
+    "start": "npm run start-server"
   },
   "engines": {
-    "node": "14.x"
+    "node": "15.4.0"
   },
   "cacheDirectories": [
     "node_modules",
