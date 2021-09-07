@@ -5,7 +5,7 @@ import Search from './Search'
 import styles from './List.module.css'
 
 const List = () => {
-  const LIMIT = 2
+  const LIMIT = 20
   const [users, setUsers] = useState([])
   const [loadMoreButton, setloadMoreButton] = useState(true)
 
