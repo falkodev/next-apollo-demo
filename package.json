@@ -6,7 +6,7 @@
     "start": "npm run start-server & npm run start-client"
   },
   "engines": {
-    "node": "15.4.0"
+    "node": "14.x"
   },
   "cacheDirectories": [
     "node_modules",
