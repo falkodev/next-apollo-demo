@@ -5,11 +5,39 @@ import Search from './Search'
 import styles from './List.module.css'
 
 const List = () => {
-  let [users, setUsers] = useState([])
+  const LIMIT = 2
+  const [users, setUsers] = useState([])
+  const [loadMoreButton, setloadMoreButton] = useState(true)
+
+  const handleLoadMore = () => {
+      fetchMore({
+          variables: {
+              offset: data.users.length + 1,
+              limit: LIMIT,
+          }, updateQuery: (previousResult, { fetchMoreResult }) => {
+              if (fetchMoreResult.users.length < 0) {
+                setloadMoreButton(false)
+              }
+              if (!fetchMoreResult) {
+                return previousResult
+              }
+
+              setUsers(previousResult.users)
+              return Object.assign({}, previousResult, {
+                  users: [...previousResult.users, ...fetchMoreResult.users]
+              })
+          }
+      })
+  }
+
+  const handleSearch = (users) => {
+    setUsers(users)
+    setloadMoreButton(false)
+  }
 
   const query = gql`
-    {
-      users {
+    query Users($limit: Int, $offset: Int) {
+      users (limit: $limit, offset: $offset) {
         name
         address
         email
@@ -17,7 +45,12 @@ const List = () => {
       }
     }
   `
-  let { loading, error, data } = useQuery(query)
+  let { loading, error, data, fetchMore } = useQuery(query, {
+    variables: {
+      limit: LIMIT,
+      offset: 0
+    },
+  })
 
   useEffect(() => {
     if (loading === false && data && data.users) {
@@ -30,7 +63,7 @@ const List = () => {
 
   return (
     <div className="cards">
-      <Search onSearch={setUsers} />
+      <Search onSearch={handleSearch} />
       <div className="cards__render">
         {users.length > 0 ? (
           users.map(user => {
@@ -44,6 +77,9 @@ const List = () => {
           <div className={styles.none}>No results</div>
         )}
       </div>
+      {
+        loadMoreButton && <div onClick={handleLoadMore} style={{ margin: 'auto 2rem', width: '80%' }}>Load More</div>
+      }
     </div>
   )
 }

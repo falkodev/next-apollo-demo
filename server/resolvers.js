@@ -3,8 +3,8 @@ const { generateFakeData } = require('./data')
 const userList = generateFakeData()
 
 const getUserList = args => {
-  if (args.page && args.perPage) {
-    return userList.slice(args.page, args.page + args.perPage)
+  if (args.offset && args.limit) {
+    return userList.slice(args.offset, args.offset + args.limit)
   } else if (args.name) {
     return userList.filter(user => {
       const name = user.name.toLowerCase()
