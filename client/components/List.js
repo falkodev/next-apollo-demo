@@ -10,22 +10,23 @@ const List = () => {
   const [loadMoreButton, setloadMoreButton] = useState(true)
 
   const handleLoadMore = () => {
-      fetchMore({
-          variables: {
-              offset: data.users.length + 1,
-              limit: LIMIT,
-          }, updateQuery: (previousResult, { fetchMoreResult }) => {
-              setloadMoreButton(fetchMoreResult.users.length)
-              if (!fetchMoreResult) {
-                return previousResult
-              }
+    fetchMore({
+      variables: {
+        offset: data.users.length + 1,
+        limit: LIMIT,
+      },
+      updateQuery: (previousResult, { fetchMoreResult }) => {
+        setloadMoreButton(fetchMoreResult.users.length)
+        if (!fetchMoreResult) {
+          return previousResult
+        }
 
-              setUsers(previousResult.users)
-              return Object.assign({}, previousResult, {
-                  users: [...previousResult.users, ...fetchMoreResult.users]
-              })
-          }
-      })
+        setUsers(previousResult.users)
+        return Object.assign({}, previousResult, {
+          users: [...previousResult.users, ...fetchMoreResult.users],
+        })
+      },
+    })
   }
 
   const handleSearch = (users, search) => {
@@ -40,7 +41,7 @@ const List = () => {
 
   const query = gql`
     query Users($limit: Int, $offset: Int) {
-      users (limit: $limit, offset: $offset) {
+      users(limit: $limit, offset: $offset) {
         name
         address
         email
@@ -51,7 +52,7 @@ const List = () => {
   let { loading, error, data, fetchMore } = useQuery(query, {
     variables: {
       limit: LIMIT,
-      offset: 1
+      offset: 1,
     },
   })
 
@@ -80,9 +81,11 @@ const List = () => {
           <div className={styles.none}>No results</div>
         )}
       </div>
-      {
-        loadMoreButton && <div onClick={handleLoadMore} className={styles.button}>Load More</div>
-      }
+      {loadMoreButton && (
+        <div onClick={handleLoadMore} className={styles.button}>
+          Load More
+        </div>
+      )}
     </div>
   )
 }

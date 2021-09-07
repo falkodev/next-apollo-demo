@@ -3,7 +3,7 @@
     "dev": "cd ./server && npm run dev & cd ./client && npm run dev",
     "start-server": "cd ./server && npm install && npm run start",
     "start-client": "cd ./client && npm install && npm run build && npm run start",
-    "start": "npm run start-server"
+    "start": "npm run start-server & npm run start-client"
   },
   "engines": {
     "node": "15.4.0"
