@@ -26,8 +26,8 @@ const Search = props => {
 
   useEffect(() => {
     runQuery()
-    if (debouncedSearchTerm.length && data && data.users) {
-      props.onSearch(data.users)
+    if (data && data.users) {
+      props.onSearch(data.users, debouncedSearchTerm)
     }
   }, [debouncedSearchTerm])
 

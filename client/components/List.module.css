@@ -3,3 +3,24 @@
   font-size: 26px;
   color: gray;
 }
+
+.button {
+  display: inline-block;
+  border: 1px solid blueviolet;
+  border-radius: 4px;
+  background: blueviolet;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.75rem 1.25rem;
+  margin: 0 0 0.5rem 0;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.button:hover {
+  border: 1px solid #7023b8;
+  background: #7023b8;
+}

@@ -15,9 +15,7 @@ const List = () => {
               offset: data.users.length + 1,
               limit: LIMIT,
           }, updateQuery: (previousResult, { fetchMoreResult }) => {
-              if (fetchMoreResult.users.length < 0) {
-                setloadMoreButton(false)
-              }
+              setloadMoreButton(fetchMoreResult.users.length)
               if (!fetchMoreResult) {
                 return previousResult
               }
@@ -30,9 +28,14 @@ const List = () => {
       })
   }
 
-  const handleSearch = (users) => {
-    setUsers(users)
-    setloadMoreButton(false)
+  const handleSearch = (users, search) => {
+    if (search.length > 0) {
+      setloadMoreButton(false)
+      setUsers(users)
+    } else {
+      setloadMoreButton(true)
+      setUsers([])
+    }
   }
 
   const query = gql`
@@ -48,7 +51,7 @@ const List = () => {
   let { loading, error, data, fetchMore } = useQuery(query, {
     variables: {
       limit: LIMIT,
-      offset: 0
+      offset: 1
     },
   })
 
@@ -78,7 +81,7 @@ const List = () => {
         )}
       </div>
       {
-        loadMoreButton && <div onClick={handleLoadMore} style={{ margin: 'auto 2rem', width: '80%' }}>Load More</div>
+        loadMoreButton && <div onClick={handleLoadMore} className={styles.button}>Load More</div>
       }
     </div>
   )
