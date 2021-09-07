@@ -10,10 +10,6 @@ const typeDefs = require('./typeDefs')
 async function startApolloServer(typeDefs, resolvers) {
   const app = express()
   app.use(cors())
-  app.use(function (req, res, next) {
-    res.setHeader('X-Frame-Options', 'sameorigin')
-    next()
-  })
 
   const server = new ApolloServer({
     typeDefs,
